@@ -9,3 +9,6 @@ router = APIRouter(prefix="/products",tags=["product"])
 def get_all_products():
     return Product.all_pks()
 
+@router.post("/add")
+def create_product(product: Product):
+    return product.save()

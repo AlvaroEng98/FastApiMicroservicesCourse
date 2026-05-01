@@ -1,7 +1,7 @@
 from redis_om import HashModel
 from apps.core.redis_client import redis_conn
 
-class Product(HashModel):
+class Product(HashModel, index=True):
 
     name : str
     price : float
