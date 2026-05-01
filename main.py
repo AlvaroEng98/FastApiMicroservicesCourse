@@ -1,6 +1,12 @@
-def main():
-    print("Hello from fastapimicroservices!")
+from fastapi import FastAPI
+
+from apps.routers import product
+
+app = FastAPI()
+
+app.include_router(product.router)
 
 
-if __name__ == "__main__":
-    main()
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
