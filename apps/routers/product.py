@@ -19,3 +19,11 @@ def create_product(data: ProductCreate):
     product.save()
     return product
 
+@router.get("/{pk}", response_model=ProductResponse)
+def get_product_by_id(pk: str):
+    product = Product.get(pk)
+    return product
+
+@router.delete("/{pk}")
+def delete_product(pk: str):
+    return Product.delete(pk)
